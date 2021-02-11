@@ -12,3 +12,9 @@ Terminal:
   pkg.installed:
     - pkgs:
       - tmux
+
+Docker:
+  pkg.installed:
+    - pkgs:
+      - docker
+      - docker-compose

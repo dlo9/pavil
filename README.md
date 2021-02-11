@@ -1,0 +1,3 @@
+# Dependencies
+- docker
+- salt-minion

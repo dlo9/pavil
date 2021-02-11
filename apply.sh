@@ -1,21 +1,25 @@
 #!/bin/sh
 
+#set -e
+
+# Must run as root
 if [ "$UID" -ne "0" ]; then
 	echo "ERROR: Must run as root"
 	exit 1
 fi
 
+# Global variables
+SALT_CONTAINER_NAME="salt-master"
 SCRIPT_DIR="$(realpath "$(dirname "$0")")"
-LOCAL_CONFIG_DIR="$SCRIPT_DIR/config"
-TARGET_CONFIG_DIR="/etc/salt"
-LOCAL_SLS_DIR="$SCRIPT_DIR/salt"
-TARGET_SLS_DIR="/srv/salt"
 
-echo "Installing salt config..."
-cp -a "$LOCAL_CONFIG_DIR/"* "$TARGET_CONFIG_DIR"
-chown -R root:root "$TARGET_CONFIG_DIR"
-# TODO: copy and chown instead?
-ln -sfT "$LOCAL_SLS_DIR" "$TARGET_SLS_DIR" # /srv/salt
+# Ensure the localhost is uses this git config
+ln -sfT "$SCRIPT_DIR/minion/minion.d" "/etc/salt/minion.d"
 
-echo "Running salt..."
-salt-call --local state.apply
+# Start the salt master
+docker-compose -f "$SCRIPT_DIR/docker-compose.yaml" up --detach --build
+
+# Apply the config to the minion
+salt-call state.apply
+
+# Stop the salt master
+docker stop "$SALT_CONTAINER_NAME"
