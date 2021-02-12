@@ -8,6 +8,11 @@ if [ "$UID" -ne "0" ]; then
 	exit 1
 fi
 
+if ! systemctl is-active docker > /dev/null; then
+	echo "ERROR: Docker must be running"
+	exit 1
+fi
+
 # Global variables
 SALT_CONTAINER_NAME="salt-master"
 SCRIPT_DIR="$(realpath "$(dirname "$0")")"
