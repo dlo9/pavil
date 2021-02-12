@@ -18,6 +18,9 @@ Docker:
     - pkgs:
       - docker
       - docker-compose
+  service.running:
+    - name: docker
+    - enable: true
 
 Fish:
   pkg.installed:
