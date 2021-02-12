@@ -21,6 +21,7 @@ SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 
 # Ensure the localhost is uses this git config
 ln -sfT "$SCRIPT_DIR/minion/minion.d" "/etc/salt/minion.d"
+mkdir -p /etc/salt/pki /etc/salt/pki/minion
 
 # Start the salt master
 docker-compose -f "$SCRIPT_DIR/docker-compose.yaml" up --detach --build
