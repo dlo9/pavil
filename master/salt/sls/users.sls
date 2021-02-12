@@ -1,3 +1,8 @@
+DavidGroup:
+  group.present:
+    - name: david
+    - gid: 1000
+
 David:
   # TODO: password
   user.present:
@@ -14,3 +19,8 @@ David:
         - power
         - lp
         - wheel
+        - docker
+        - users
+    - require:
+      - DavidGroup
+      - Fish

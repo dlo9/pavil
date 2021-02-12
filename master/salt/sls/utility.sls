@@ -18,3 +18,8 @@ Docker:
     - pkgs:
       - docker
       - docker-compose
+
+Fish:
+  pkg.installed:
+    - pkgs:
+      - fish
