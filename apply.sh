@@ -23,10 +23,14 @@ cleanup() {
 	# Stop the salt master
 	echo "Exiting docker..."
 	docker-compose down -v
+
+	popd
 }
 
 trap cleanup EXIT
 
+# docker-compose expects $PWD to be accurate
+pushd "$SCRIPT_DIR" > /dev/null
 
 # Start running
 echo "Configuring system..."
