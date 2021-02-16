@@ -33,7 +33,7 @@ Plug 'deviantfero/wpgtk.vim'
 Plug 'dylanaraps/wal'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'on': [] }
+Plug 'ajh17/VimCompletesMe'
 " Load plugins on first use of insert mode, shaving 160+ ms off start-up:
 " https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
 augroup load_load_insert
@@ -48,13 +48,6 @@ autocmd VimEnter *
 \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \|   PlugInstall --sync | q
 \| endif
-
-"""""""""""""""""""
-"" YouCompleteMe ""
-"""""""""""""""""""
-
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
 
 """""""""""""
 "" Airline ""
