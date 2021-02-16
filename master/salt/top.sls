@@ -5,7 +5,7 @@ base:
 	{#- Remove the extension -#}
 	{%- set sls = sls | replace('.sls', '') -%}
 	{#- Only include those under sls/ -#}
-	{%- if sls.startswith("sls/") %}
+	{%- if sls != "top" %}
     - {{ sls }}
 	{%- endif -%}
 {%- endfor -%}

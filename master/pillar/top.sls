@@ -1,3 +1,3 @@
 base:
   '*':
-    - sls/users
+    - users

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#set -e
+set -e
 
 # Must run as root
 if [ "$UID" -ne "0" ]; then
@@ -24,7 +24,7 @@ ln -sfT "$SCRIPT_DIR/minion/minion.d" "/etc/salt/minion.d"
 mkdir -p /etc/salt/pki /etc/salt/pki/minion
 
 # Decrypt pillar
-"$SCRIPT_DIR/sops-encrypt-all.sh"
+"$SCRIPT_DIR/sops-encrypt-all.sh" || true
 "$SCRIPT_DIR/sops-decrypt-all.sh"
 
 # Start the salt master
