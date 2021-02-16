@@ -13,6 +13,9 @@ Text editor:
     - source: salt://utility/vimrc
     - user: david
     - group: david
+  cmd.run:
+    - name: vim +PlugInstall +qall
+    - runas: david
 
 Tmux:
   pkg.installed:
