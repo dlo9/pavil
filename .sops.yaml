@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: '\.sls\.yaml$'
+    pgp: '6C19C3AB3FC2B37EC3E5E2371095575A4774EC4E'
+    encrypted_regex: '.*'

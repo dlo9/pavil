@@ -5,14 +5,13 @@ services:
     build: .
     container_name: salt-master
     hostname: salt
-      #network_mode: host
     ports:
       - 4505:4505
       - 4506:4506
     volumes:
       - ./master/master.d:/etc/salt/master.d
       - ./master/salt:/srv/salt
-      #- ./master/keys:/etc/salt/pki/master
+      - ./master/pillar:/srv/pillar
       - keys:/etc/salt/pki/master
     environment:
       - SALT_LOG_LEVEL=debug

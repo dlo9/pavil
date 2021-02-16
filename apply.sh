@@ -23,13 +23,24 @@ SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 ln -sfT "$SCRIPT_DIR/minion/minion.d" "/etc/salt/minion.d"
 mkdir -p /etc/salt/pki /etc/salt/pki/minion
 
+# Decrypt pillar
+"$SCRIPT_DIR/sops-encrypt-all.sh"
+"$SCRIPT_DIR/sops-decrypt-all.sh"
+
 # Start the salt master
-docker-compose -f "$SCRIPT_DIR/docker-compose.yaml" up --detach --build
+if [ "$1" == "-d" ]; then
+	docker-compose -f "$SCRIPT_DIR/docker-compose.yaml" up --build
+else
+	docker-compose -f "$SCRIPT_DIR/docker-compose.yaml" up --detach --build
 
-# Apply the config to the minion
-echo "Applying salt state..."
-salt-call state.apply
+	# Apply the config to the minion
+	echo "Applying salt state..."
+	salt-call state.apply
 
-# Stop the salt master
-echo "Exiting docker..."
-docker stop "$SALT_CONTAINER_NAME" >/dev/null
+	# Stop the salt master
+	echo "Exiting docker..."
+	docker stop "$SALT_CONTAINER_NAME" > /dev/null
+fi
+
+# Remove decrypted pillar
+"$SCRIPT_DIR/sops-remove-decrypted.sh"
