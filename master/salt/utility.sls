@@ -7,6 +7,12 @@ Text editor:
   pkg.installed:
     - pkgs:
       - vim
+      - vim-spell-en
+  file.managed:
+    - name: /home/david/.vimrc
+    - source: salt://utility/vimrc
+    - user: david
+    - group: david
 
 Terminal:
   pkg.installed:
