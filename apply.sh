@@ -29,15 +29,15 @@ cleanup() {
 
 trap cleanup EXIT
 
-# docker-compose expects $PWD to be accurate
-pushd "$SCRIPT_DIR" > /dev/null
-
 # Start running
 echo "Configuring system..."
 
 # Global variables
 SALT_CONTAINER_NAME="salt-master"
 SCRIPT_DIR="$(realpath "$(dirname "$0")")"
+
+# docker-compose expects $PWD to be accurate
+pushd "$SCRIPT_DIR" > /dev/null
 
 # Ensure the localhost is uses this config
 ln -sfT "$SCRIPT_DIR/minion/minion.d" "/etc/salt/minion.d"
