@@ -1,5 +1,8 @@
+# About
+A salt configuration for my new HP Pavillion Laptop. [Saltstack](https://docs.saltproject.io/en/latest/) runs in a container, and secrets are encrypted (in git) via [sops](https://github.com/mozilla/sops).
+
 # Dependencies
-- docker
+- docker-compose
 - salt-minion
 - sops
 
