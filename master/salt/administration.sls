@@ -2,4 +2,7 @@ AUR:
   pkg.installed:
     - pkgs:
       - yay
-      - base-devel
+
+AUR Dependencies:
+  pkg.group_installed:
+    - name: base-devel
