@@ -26,3 +26,11 @@ David:
     - require:
       - DavidGroup
       - Fish
+
+SSH Key:
+  file.managed:
+    - name: /home/david/.ssh/id_rsa
+    - user: david
+    - group: david
+    - mode: 600
+    - contents_pillar: users:david:ssh_key
