@@ -32,16 +32,75 @@ Tmux:
   cmd.run:
     - name: /home/david/.tmux/plugins/tpm/bin/install_plugins
 
-Docker:
-  pkg.installed:
-    - pkgs:
-      - docker
-      - docker-compose
-  service.running:
-    - name: docker
-    - enable: true
 
+# TODO: fisher and fish config
 Fish:
   pkg.installed:
     - pkgs:
       - fish
+  cmd.run:
+    - name: |-
+        #!/bin/sh -e
+
+        # Update fish plugins
+        fish -c 'fisher'
+        
+        # Updating Fish completions
+        fish -c 'fish_update_completions'
+
+Disk:
+  pkg.installed:
+    - pkgs:
+      # Driver type stuff
+      - mtools
+      - ntfs-3g
+      - exfat-utils
+
+      # Visual disk usage
+      - baobab
+
+      # Encryption
+      - encfs
+
+File management:
+  pkg.installed:
+    - pkgs:
+      - ranger
+      - perl-image-exiftool  # Ranger optional dep
+      - syncthing
+  cmd.run:
+    - name: systemctl enable --now --user syncthing.service
+    - runas: david
+
+Network:
+  pkg.installed:
+    - pkgs:
+      - traceroute
+      - nmap
+      - iperf3
+      - gnu-netcat
+      - bind
+
+Monitoring:
+  pkg.installed:
+    - pkgs:
+      - nethogs
+      - htop
+      - iotop
+      - iftop
+      - cpupower
+
+Misc:
+  pkg.installed:
+    - pkgs:
+      - croc
+      - ripgrep
+      - rsync
+      - wget
+      - tree
+      - time
+      - pv
+      - p7zip
+      - bc
+      - aria2
+      - bat
