@@ -2,10 +2,14 @@
 
 set -e
 
+THIS_SCRIPT="apply.sh"
+SCRIPT_DIR="$(realpath "$(dirname "$0")")"
+
 # Must run as root
 if [ "$UID" -ne "0" ]; then
-	echo "ERROR: Must run as root"
-	exit 1
+	echo "$THIS_SCRIPT must be run as root -- attempting privilege escalation"
+	sudo -E "$SCRIPT_DIR/$THIS_SCRIPT" "$@"
+	exit $?
 fi
 
 if ! systemctl is-active docker > /dev/null; then
@@ -31,10 +35,6 @@ trap cleanup EXIT
 
 # Start running
 echo "Configuring system..."
-
-# Global variables
-SALT_CONTAINER_NAME="salt-master"
-SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 
 # docker-compose expects $PWD to be accurate
 pushd "$SCRIPT_DIR" > /dev/null
