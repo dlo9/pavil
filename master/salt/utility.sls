@@ -32,21 +32,41 @@ Tmux:
   cmd.run:
     - name: /home/david/.tmux/plugins/tpm/bin/install_plugins
 
-
-# TODO: fisher and fish config
 Fish:
   pkg.installed:
     - pkgs:
       - fish
-  cmd.run:
-    - name: |-
-        #!/bin/sh -e
+  file.recurse:
+    - name: /home/david/.config/fish/functions
+    - source: salt://utility/fish/functions
+    - user: david
+    - group: david
 
-        # Update fish plugins
-        fish -c 'fisher'
-        
-        # Updating Fish completions
-        fish -c 'fish_update_completions'
+Fish plugin manager:
+  cmd.run:
+    - name: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+    - shell: /bin/fish
+    - creates:
+      - /home/david/.config/fish/functions/fisher.fish
+    - requires:
+      - Fish
+
+Fish plugins list:
+  file.managed:
+    - name: /home/david/.config/fish/fish_plugins
+    - contents: |
+        edc/bass
+    - requires:
+      - Fish plugin manager
+
+Update fish plugins:
+  cmd.run:
+    - name: fisher update
+    - shell: /bin/fish
+    - requires:
+      - Fish plugin manager
+    - onchanges:
+      - Fish plugins list
 
 Disk:
   pkg.installed:
