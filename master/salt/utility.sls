@@ -37,6 +37,7 @@ Fish config:
     - name: /home/david/.config/fish/config.fish
     - contents: |
         set -gx EDITOR vim
+        set -gx VISUAL code
         set -gx TZ America/Los_Angeles
 
 Fish:
