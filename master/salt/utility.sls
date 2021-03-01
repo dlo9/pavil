@@ -32,10 +32,19 @@ Tmux:
   cmd.run:
     - name: /home/david/.tmux/plugins/tpm/bin/install_plugins
 
+Fish config:
+  file.managed:
+    - name: /home/david/.config/fish/config.fish
+    - contents: |
+        set -gx EDITOR vim
+        set -gx TZ America/Los_Angeles
+
 Fish:
   pkg.installed:
     - pkgs:
       - fish
+    - requires:
+      - Fish config
   file.recurse:
     - name: /home/david/.config/fish/functions
     - source: salt://utility/fish/functions
