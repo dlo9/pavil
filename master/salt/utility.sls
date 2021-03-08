@@ -110,6 +110,7 @@ Network:
       - iperf3
       - gnu-netcat
       - bind
+      - wireguard-tools
 
 Monitoring:
   pkg.installed:
