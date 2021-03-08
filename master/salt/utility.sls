@@ -126,7 +126,8 @@ Wireguard:
         [Interface]
         Address = 10.0.0.4
         PrivateKey = {{ pillar['network']['wireguard']['key'] }}
-        DNS = 10.43.0.10
+        # Pi-hole DNS
+        DNS = 10.43.0.255
 
         [Peer]
         PublicKey = FhEGcZJD6cg47SYdEVXruLdto9eKU6aHc7/JnJZmvRc=
