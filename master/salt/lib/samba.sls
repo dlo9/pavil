@@ -1,7 +1,7 @@
 Systemd reload:
   cmd.run:
     - name: systemctl --system daemon-reload
-    - watch:
+    - onchanges:
       - file: /etc/fstab
 
 Restart systemd automount service:
