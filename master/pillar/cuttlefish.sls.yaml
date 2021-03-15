@@ -1,12 +1,13 @@
 cuttlefish:
     kubectl-client-key-data: ENC[AES256_GCM,data:T55FdE/EJOoq4Zi8wA/S53Xx7II1FSnoio+WrOrRyUPoQ9w/FyJRG04JqyaOLh8gmym903tDwU5XYXP9Nhp575GtvAT0ja96XiKfTay8hRQeF/s/IDgWCY7XoOyIxnnolqM2/m57GL84249n7PjAyg9SYiu7BCpCHQpJEd4+KIGBwa1NisVYecraHkGp24ztQYD+CLmQZurFl0V1ZY4auFuG16Bg7k4acKi0pN2aY8drnHqWxaYME8OOO0Jn9vVr3Ju69ocx191JmK3RBu8jvUex6tpHZiWAX28hjbAOYXYc/PM9ip/c5ezAJMKi+1uVUAl0rwW8qevLRQLq1k+192PDbApq5azIq1py/IaFPjh+r0mI+jYTXPwjlTtItaszXmgjPnRzW6Ejw+UI+y3EQw==,iv:HeaU3SL+jF2GELEpeyLgVZGZcsaGD1uGLQ/uM4vuBjc=,tag:Xvwrj1yYXzJ3GT/TzL1IeQ==,type:str]
+    samba-password: ENC[AES256_GCM,data:ek3V3CizmgE=,iv:3WRyH9BrAPP2n+SYzJ1vges1sDD9vOKApQXQkAQESco=,tag:vByu5TOgDGnH3Be/N3CK/Q==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-03-15T01:43:46Z'
-    mac: ENC[AES256_GCM,data:N/1YrDGWI55qm3r8I4N8gWXjv+x3fZiQpm3VfaQ5Kgx29GHeCSbG0dd4b7P3GgKB1iXEtyhQu+s9RgAbU4TdGTrxPPSpcjm+ej5BzojWSvdXaU+xeDzJztoKTHKoFwJGxEjZXktNEaRwrf5H+1Q7A6MqQn+Z6GziwRPcqSj4DzQ=,iv:i/NdmIcq3c2Y4YNUPta6wlilh5ipTHJSOqztmEmgImg=,tag:mQ/kzmpDnjtiV+y3/CV8Bg==,type:str]
+    lastmodified: '2021-03-15T03:09:02Z'
+    mac: ENC[AES256_GCM,data:p4QRzM3kvIZIBe5LCl9G8U68yeS00jC0VkB3w+fvHuK7U8+0Rny6auofOlyUFIYAUqvC1hakWs0TdJF4Ss/9hnvB+QI80my9a17V/qIZo1N5W/GPMTLvgcbw6rNLx+yarISTwd5xSNE/+0C0mcvZHodAJx1sjQkY6po4Ss/WS7w=,iv:9Fk6Yi+H7i/JyCyDb28CPADLR8Rqr8D7aMe+/ETj0BU=,tag:MLWZ7UpFl9D7twMKZovhoQ==,type:str]
     pgp:
     -   created_at: '2021-02-16T06:14:37Z'
         enc: |
