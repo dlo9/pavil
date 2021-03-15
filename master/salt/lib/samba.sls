@@ -8,7 +8,6 @@ Restart systemd automount service:
   service.running:
     - name: remote-fs.target
     - enable: true
-    - reload: true
     - watch:
       - file: /etc/fstab
 
@@ -38,5 +37,5 @@ Samba share for {{ name | quote }}:
     - name: /etc/fstab
     - append_if_not_found: true
     - pattern: .*/mnt/{{ name | regex_escape | quote }}.*
-    - repl: //{{ host | quote }}/{{ name | quote }} /mnt/{{ name | quote }} cifs _netdev,noauto,user,uid={{ user | quote }},gid={{ user | quote }},nofail,credentials=/etc/fstab.d/{{ name | quote }}.credentials.smb,x-systemd.automount,x-systemd.mount-timeout=30 0 0
+    - repl: //{{ host | quote }}/{{ name | quote }} /mnt/{{ name | quote }} cifs _netdev,noauto,user,exec,uid={{ user | quote }},gid={{ user | quote }},nofail,credentials=/etc/fstab.d/{{ name | quote }}.credentials.smb,x-systemd.automount,x-systemd.mount-timeout=30 0 0
 {%- endmacro %}
