@@ -31,6 +31,8 @@ Tmux:
     - target: /home/david/.tmux/plugins/tpm
   cmd.run:
     - name: /home/david/.tmux/plugins/tpm/bin/install_plugins
+    - onchanges:
+	  - file: /home/david/.tmux.conf
 
 Fish config:
   file.managed:
@@ -101,6 +103,8 @@ File management:
   cmd.run:
     - name: systemctl enable --now --user syncthing.service
     - runas: david
+	- creates:
+      - /usr/lib/systemd/user/syncthing.service
 
 Network:
   pkg.installed:
