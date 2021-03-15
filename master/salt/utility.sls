@@ -157,3 +157,14 @@ Misc:
       - bc
       - aria2
       - bat
+
+EncFS:
+  pkg.installed:
+    - pkgs:
+      - encfs
+      - fuse2
+  file.directory:
+    - name: /mnt/encfs
+    - user: david
+    - group: david
+    - mode: 755
