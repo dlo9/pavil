@@ -34,6 +34,7 @@ Plug 'dylanaraps/wal'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'ajh17/VimCompletesMe'
+Plug 'saltstack/salt-vim'
 " Load plugins on first use of insert mode, shaving 160+ ms off start-up:
 " https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
 augroup load_load_insert
@@ -161,8 +162,8 @@ set ffs=unix,dos,mac
 "set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linewrap obeys word boundaries
 set linebreak
