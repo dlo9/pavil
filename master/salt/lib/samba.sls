@@ -1,3 +1,9 @@
+Systemd reload:
+  cmd.run:
+    - name: systemctl --system daemon-reload
+    - watch:
+      - file: /etc/fstab
+
 Restart systemd automount service:
   service.running:
     - name: remote-fs.target
@@ -5,7 +11,7 @@ Restart systemd automount service:
     - reload: true
     - watch:
       - file: /etc/fstab
-      
+
 {% macro mount_share(host, name, workgroup, user, pass) -%}
 Samba share mount for {{ name | quote }}:
   file.directory:
