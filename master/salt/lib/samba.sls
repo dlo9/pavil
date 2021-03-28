@@ -28,6 +28,7 @@ Samba mount for {{ name | quote }}:
     - device: //{{ host | quote }}/{{ name | quote }}
     - fstype: cifs
     - mkmnt: True
+    - mount: False
     - opts:
       - _netdev
       - noauto
