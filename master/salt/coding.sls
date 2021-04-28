@@ -3,6 +3,9 @@ IDE:
     - pkgs:
       - code
 
+{% import 'lib/aur.sls' as aur with context %}
+{{ aur.install("code-marketplace") }}
+
 Version Control:
   pkg.installed:
     - pkgs:
