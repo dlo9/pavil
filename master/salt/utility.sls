@@ -138,7 +138,7 @@ Wireguard:
         [Peer]
         PublicKey = FhEGcZJD6cg47SYdEVXruLdto9eKU6aHc7/JnJZmvRc=
         AllowedIPs = 10.0.0.1, 192.168.1.1, 192.168.1.210, 192.168.1.211, 10.43.0.0/16
-        Endpoint = sigpanic.com:14927
+        Endpoint = vpn.sigpanic.com:14927
 
 Monitoring:
   pkg.installed:
