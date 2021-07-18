@@ -1,14 +1,19 @@
 network:
-    wireguard:
-        key: ENC[AES256_GCM,data:5lX5xjiUgNWRS9d75Vgw101sKdojjieOLOamtEZ6MyAFaXT3+0dkIaE/ktQ=,iv:xJ6YnD8oJCRCP8mkz813vnjHfJMjgsCHzVBD8fLvMAA=,tag:y3EKl1n8GB+gCZNw44hwhA==,type:str]
+    hosts:
+        nebula:
+            wireguard:
+                key: ENC[AES256_GCM,data:6yevvGPlwVVbjAub32zBgy5RbLyCgUcVs51srVmn6oCyjDky2DjrpwaoOwg=,iv:vkYb473MyWgG3AH3YWSPJLdK2nMxj/yl3+wt3VX767U=,tag:QXzAB/EdWJTMi+hRdaYpOg==,type:str]
+        pavil:
+            wireguard:
+                key: ENC[AES256_GCM,data:Vl4FYwkIW6uxcR/s4r48ht6EhgoFC/lKPFtqAW/Q52psi+7dJRzIj2Ij/xw=,iv:BlDO5QwS8s6GLSbVpJr48YsGeP4no4nNt2pE4dclArE=,tag:E2ekEYaC7WfOj0mGft2oNg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-03-15T01:43:55Z"
-    mac: ENC[AES256_GCM,data:r94zZ8TpUxuPgUDo/eSe8r8VhpLBXrUwgPDRmNxNruAgO4xYnHcy/XZu3SNUFx+cLgXijs/iRdDuaVWJ84g6ZX/zurA54kCC3qiozWNZ2tk2NgEU08gZdM6q9nbrppWbnj5lfBlR73MparpELTDcUWHMmddmy18URE3kU1omArQ=,iv:IFBHQQMHHavPU42/SotpWchl3mjtngg1Kg3y+059jwI=,tag:XL/8o6WUndLHVBvecBx5mQ==,type:str]
+    lastmodified: "2021-04-27T08:34:05Z"
+    mac: ENC[AES256_GCM,data:xnbqoSefE1/zaSFvJml3ioOVfAPXKV25IgSZgKjMbDXmzNWJl9vds3EfJ3OFtrdeKW0zGOzk73eoZncS4K9ueqYdFw58l7HFdsGPNM6aFaHEg8TCmHLG7aiu29M0UnvUQb77icUmuHmgUBkaCqNBk8EL6zTvDxrrKs3ifTrRZwk=,iv:IWyEB0qpgnfuhxkc+lE8ghxYNz1Tmic3sa/5NU5s/I4=,tag:exTmGe9juqE5nPGxAFSiyg==,type:str]
     pgp:
         - created_at: "2021-04-27T08:05:44Z"
           enc: |
@@ -51,4 +56,4 @@ sops:
             -----END PGP MESSAGE-----
           fp: 13E8144E44DF7E42B4DAA1C2EFE03095BE9DB307
     encrypted_regex: .*
-    version: 3.6.1
+    version: 3.7.1
